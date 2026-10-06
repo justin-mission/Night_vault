@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NIGHTVAULT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- PAGE 1: HERO LANDING -->
+  <section id="hero-page">
+    <nav>
+      <div class="logo">NIGHTVAULT</div>
+      <div class="links">
+        <a onclick="showInfo('Explore', 'Curated vault collections.')">Explore</a>
+        <a onclick="showInfo('Categories', 'Streetwear & Accessories.')">Categories</a>
+        <a onclick="showInfo('Deals', 'Exclusive vault drops.')">Deals</a>
+        <a onclick="showInfo('Sell', 'Become a seller.')">Sell</a>
+        <a onclick="showInfo('About', 'Underground streetwear platform.')">About</a>
+      </div>
+      <div>
+        <button class="btn-sec" onclick="openModal('auth-modal')">Sign In</button>
+        <button class="btn" onclick="openModal('auth-modal')">Sign Up</button>
+      </div>
+    </nav>
+
+    <div class="hero-body">
+      <h1>ENTER THE VAULT.</h1>
+      <p>Discover what stands out. Shop fashion & essentials.</p>
+      <div>
+        <button class="btn" onclick="openModal('auth-modal')">EXPLORE THE VAULT ➔</button>
+        <button class="btn-sec" onclick="openModal('auth-modal')">START SHOPPING ➔</button>
+      </div>
+    </div>
+    <div class="scroll-text">SCROLL TO EXPLORE ↓</div>
+  </section>
+
+  <!-- PAGE 2: BUYING STOREFRONT -->
+  <section id="store-page" class="hidden">
+    <div class="store-nav">
+      <button class="btn-sec" onclick="goToHome()">← Back to Home</button>
+      <h2>NIGHTVAULT DROPS</h2>
+      <button class="btn" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</button>
+    </div>
+
+    <div class="grid">
+      <!-- BREW -->
+      <div class="card">
+        <img src="BREW.jpg" alt="BREW Tee">
+        <h3>BREW TEE</h3>
+        <div class="price">₱850.00</div>
+        <select id="s-brew"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <button class="btn" onclick="addToCart('BREW Tee', 850, 's-brew')">ADD TO CART ➔</button>
+      </div>
+      <!-- FROST -->
+      <div class="card">
+        <img src="FROST.jpg" alt="FROST Tee">
+        <h3>FROST TEE</h3>
+        <div class="price">₱890.00</div>
+        <select id="s-frost"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <button class="btn" onclick="addToCart('FROST Tee', 890, 's-frost')">ADD TO CART ➔</button>
+      </div>
+      <!-- VORTEX -->
+      <div class="card">
+        <img src="VORTEX.jpg" alt="VORTEX Tee">
+        <h3>VORTEX TEE</h3>
+        <div class="price">₱950.00</div>
+        <select id="s-vortex"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <button class="btn" onclick="addToCart('VORTEX Tee', 950, 's-vortex')">ADD TO CART ➔</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL AUTH -->
+  <div id="auth-modal" class="modal hidden">
+    <div class="box">
+      <span class="close" onclick="closeModal('auth-modal')">&times;</span>
+      <h2>Sign In</h2>
+      <input type="email" placeholder="Email...">
+      <input type="password" placeholder="Password...">
+      <button class="btn" style="width:100%" onclick="loginUser()">Enter Store ➔</button>
+    </div>
+  </div>
+
+  <!-- MODAL INFO -->
+  <div id="info-modal" class="modal hidden">
+    <div class="box">
+      <span class="close" onclick="closeModal('info-modal')">&times;</span>
+      <h2 id="i-title">Title</h2>
+      <p id="i-body" style="color:#aaa; margin-top:10px;"></p>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div id="cart" class="cart hidden">
+    <div style="display:flex; justify-content:space-between;">
+      <h3>Your Bag</h3>
+      <span class="close" onclick="toggleCart()">&times;</span>
+    </div>
+    <div id="cart-list" style="margin-top:20px;"></div>
+    <div style="margin-top:auto; border-top:1px solid #333; padding-top:10px;">
+      <p>Total: <strong id="cart-total" style="color:#a78bfa;">₱0.00</strong></p>
+      <button class="btn" style="width:100%; margin-top:10px;" onclick="alert('Checkout Complete!')">Checkout ➔</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
